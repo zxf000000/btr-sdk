@@ -8,6 +8,11 @@ export interface ChainsResponse {
   chains: ResponseChainItem[];
 }
 
+export interface TokensResponse {
+  count: number;
+  results: ResponseTokenItem[];
+}
+
 export interface ResponseChainItem {
   id: number;
   chainId: string;
@@ -22,4 +27,19 @@ export interface ResponseChainItem {
   nativeToken: '{"symbol":"ETH","address":"0x0000000000000000000000000000000000000000","coinKey":"ETH","priceUSD":"1885.39","chainId":1,"decimals":18,"name":"ETH","logoURI":"https://static.debank.com/image/token/logo_url/eth/935ae4e4d1d12d59a99717a24f2540b5.png"}';
   tokenlistUrl: string;
   isBlock: 0;
+}
+
+export interface ResponseTokenItem {
+  id: number;
+  chainId: string;
+  address: string;
+  blockchainNetwork: string;
+  coingeckoId: string;
+  decimals: number;
+  image: string;
+  name: string;
+  rank: string;
+  symbol: string;
+  usdprice: number;
+  usedIniframe: number;
 }

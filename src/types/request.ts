@@ -1,5 +1,5 @@
 export interface GetTokensForNetworkProps {
   network: string;
-  page: number;
-  size: number;
+  page?: number;
+  size?: number;
 }

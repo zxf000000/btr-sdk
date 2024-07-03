@@ -1,3 +1,5 @@
+import { ResponseTokenItem } from "./response";
+
 export * from "./response";
 
 export interface Chain {
@@ -15,6 +17,8 @@ export interface Chain {
   tokenlistUrl: string;
   isBlock: 0;
 }
+
+export type Token = ResponseTokenItem;
 
 export interface EvmChain {
   chainName: string;

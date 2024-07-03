@@ -1,6 +1,11 @@
 import { request } from "./request";
 import { baseConfig } from "../macros/base-config";
-import { Chain, ChainsResponse, ResponseChainItem } from "../types";
+import {
+  Chain,
+  ChainsResponse,
+  ResponseChainItem,
+  TokensResponse,
+} from "../types";
 import { GetTokensForNetworkProps } from "../types/request";
 
 /**
@@ -27,6 +32,11 @@ export const getChains = async () => {
 
 export const getTokensForNetwork = async ({
   network,
-  page,
-  size,
-}: GetTokensForNetworkProps) => {};
+  page = 1,
+  size = 10,
+}: GetTokensForNetworkProps) => {
+  const result = await request<TokensResponse>(
+    `${baseConfig.apiUrl}/api/queryTokenList?network=${network}&page=${page}&size=${size}`,
+  );
+  return result.data;
+};
