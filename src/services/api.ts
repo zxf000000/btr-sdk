@@ -8,6 +8,8 @@ import {
   TokensResponse,
   GetRoutesProps,
   GetTokensForNetworkProps,
+  GenerateSwapDataProps,
+  RouteTxData,
 } from "../types";
 
 /**
@@ -73,4 +75,22 @@ export const getRoutes = async ({
   return result.data;
 };
 
-export const generateSwapData = async({});
+export const generateSwapData = async ({
+  hash,
+  slippage,
+  from,
+  receiver,
+}: GenerateSwapDataProps) => {
+  const params = new URLSearchParams();
+  params.set("hash", hash);
+  params.set("slippage", slippage);
+  params.set("from", from);
+  params.set("receiver", receiver);
+  const result = await request<RouteTxData[]>(
+    `${baseConfig.routeApiUrl}/swap?` + params,
+    {
+      method: "GET",
+    },
+  );
+  return result.data;
+};

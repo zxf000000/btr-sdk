@@ -53,6 +53,7 @@ export interface TokenInRoute {
   symbol: string;
   icon: string;
 }
+
 export interface SubRoute {
   amountIn: string;
   amountOut: string;
@@ -92,4 +93,16 @@ export interface Route {
     symbol: string;
   };
   timeEstimated: number;
+}
+
+export interface RouteTxData {
+  to: string;
+  data: string;
+  value: string;
+  method?: string;
+  chainId: string;
+  args: {
+    type: string;
+    value: any;
+  }[];
 }

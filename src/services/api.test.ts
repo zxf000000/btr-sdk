@@ -1,4 +1,9 @@
-import { getChains, getRoutes, getTokensForNetwork } from "./api";
+import {
+  generateSwapData,
+  getChains,
+  getRoutes,
+  getTokensForNetwork,
+} from "./api";
 import { expect, test, describe, it } from "vitest";
 
 describe("getChains", () => {
@@ -9,29 +14,73 @@ describe("getChains", () => {
 });
 
 describe("getTokensForNetwork", () => {
-  it("should return tokens for a valid network", async () => {
-    const tokenResult = await getTokensForNetwork({ network: "ethereum" });
-    expect(tokenResult.count).toBeGreaterThan(0);
-    expect(tokenResult.results.length).toBeGreaterThan(0);
-  });
+  it(
+    "should return tokens for a valid network",
+    async () => {
+      const tokenResult = await getTokensForNetwork({ network: "ethereum" });
+      expect(tokenResult.count).toBeGreaterThan(0);
+      expect(tokenResult.results.length).toBeGreaterThan(0);
+    },
+    {
+      timeout: 30000,
+    },
+  );
 
-  it("should handle network with no tokens", async () => {
-    const tokenResult = await getTokensForNetwork({ network: "invalid" });
-    expect(tokenResult.count).toBe(0);
-    expect(tokenResult.results.length).toBe(0);
-  });
+  it(
+    "should handle network with no tokens",
+    async () => {
+      const tokenResult = await getTokensForNetwork({ network: "invalid" });
+      expect(tokenResult.count).toBe(0);
+      expect(tokenResult.results.length).toBe(0);
+    },
+    {
+      timeout: 30000,
+    },
+  );
 });
 
 describe("getRoutes", () => {
-  it("should return routes for a valid network", async () => {
-    const routes = await getRoutes({
-      fromChainId: "1",
-      toChainId: "56",
-      amount: "1",
-      tokenInAddress: "0x0000000000000000000000000000000000000000",
-      tokenOutAddress: "0x0000000000000000000000000000000000000000",
-      slippage: "500",
-    });
-    expect(routes.length).toBeGreaterThan(0);
-  });
+  it(
+    "should return routes for a valid network",
+    async () => {
+      const routes = await getRoutes({
+        fromChainId: "1",
+        toChainId: "56",
+        amount: "1",
+        tokenInAddress: "0x0000000000000000000000000000000000000000",
+        tokenOutAddress: "0x0000000000000000000000000000000000000000",
+        slippage: "500",
+      });
+      expect(routes.length).toBeGreaterThan(0);
+    },
+    {
+      timeout: 30000,
+    },
+  );
+});
+
+describe("generateSwapData", async () => {
+  it(
+    "should return valid tx data",
+    async () => {
+      const routes = await getRoutes({
+        fromChainId: "1",
+        toChainId: "56",
+        amount: "1",
+        tokenInAddress: "0x0000000000000000000000000000000000000000",
+        tokenOutAddress: "0x0000000000000000000000000000000000000000",
+        slippage: "500",
+      });
+      const swapData = await generateSwapData({
+        hash: routes[0].hash,
+        slippage: "500",
+        receiver: "0x75B851a27D7101438F45fce31816501193239A83",
+        from: "0x75B851a27D7101438F45fce31816501193239A83",
+      });
+      expect(swapData.length).toBeGreaterThan(0);
+    },
+    {
+      timeout: 30000,
+    },
+  );
 });
