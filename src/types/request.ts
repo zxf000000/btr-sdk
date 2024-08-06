@@ -3,3 +3,22 @@ export interface GetTokensForNetworkProps {
   page?: number;
   size?: number;
 }
+
+export interface GetRoutesProps {
+  fromChainId: string;
+  toChainId: string;
+  amount: string;
+  tokenInAddress: string;
+  tokenOutAddress: string;
+  type?: "exactIn" | "exactOut";
+  slippage: string;
+  entrance?: string;
+  abortSignal?: AbortSignal;
+}
+
+export interface GenerateSwapDataProps {
+  hash: string;
+  slippage: string;
+  receiver: string;
+  from: string;
+}

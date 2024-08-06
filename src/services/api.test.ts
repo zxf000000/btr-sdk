@@ -1,4 +1,4 @@
-import { getChains, getTokensForNetwork } from "./api";
+import { getChains, getRoutes, getTokensForNetwork } from "./api";
 import { expect, test, describe, it } from "vitest";
 
 describe("getChains", () => {
@@ -19,5 +19,19 @@ describe("getTokensForNetwork", () => {
     const tokenResult = await getTokensForNetwork({ network: "invalid" });
     expect(tokenResult.count).toBe(0);
     expect(tokenResult.results.length).toBe(0);
+  });
+});
+
+describe("getRoutes", () => {
+  it("should return routes for a valid network", async () => {
+    const routes = await getRoutes({
+      fromChainId: "1",
+      toChainId: "56",
+      amount: "1",
+      tokenInAddress: "0x0000000000000000000000000000000000000000",
+      tokenOutAddress: "0x0000000000000000000000000000000000000000",
+      slippage: "500",
+    });
+    expect(routes.length).toBeGreaterThan(0);
   });
 });

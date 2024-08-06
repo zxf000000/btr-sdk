@@ -43,3 +43,14 @@ export interface ResponseTokenItem {
   usdprice: number;
   usedIniframe: number;
 }
+
+export interface BsRoute {
+  fromChainId: string;
+  toChainId: string;
+  amount: string;
+  tokenInAddress: string;
+  tokenOutAddress: string;
+  type: "exactIn" | "exactOut";
+  slippage: string;
+  entrance: string;
+}

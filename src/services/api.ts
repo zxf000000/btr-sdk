@@ -4,9 +4,11 @@ import {
   Chain,
   ChainsResponse,
   ResponseChainItem,
+  Route,
   TokensResponse,
+  GetRoutesProps,
+  GetTokensForNetworkProps,
 } from "../types";
-import { GetTokensForNetworkProps } from "../types/request";
 
 /**
  * get all supported chain
@@ -40,3 +42,35 @@ export const getTokensForNetwork = async ({
   );
   return result.data;
 };
+
+export const getRoutes = async ({
+  fromChainId,
+  tokenOutAddress,
+  toChainId,
+  tokenInAddress,
+  amount,
+  type = "exactIn",
+  slippage,
+  entrance = "Butter+",
+  abortSignal,
+}: GetRoutesProps) => {
+  const params = new URLSearchParams();
+  params.set("fromChainId", fromChainId);
+  params.set("toChainId", toChainId);
+  params.set("amount", amount);
+  params.set("tokenInAddress", tokenInAddress);
+  params.set("tokenOutAddress", tokenOutAddress);
+  params.set("type", type);
+  params.set("slippage", slippage);
+  params.set("entrance", entrance);
+  const result = await request<Route[]>(
+    `${baseConfig.routeApiUrl}/route?` + params,
+    {
+      method: "GET",
+      signal: abortSignal,
+    },
+  );
+  return result.data;
+};
+
+export const generateSwapData = async({});

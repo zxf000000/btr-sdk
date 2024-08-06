@@ -1,6 +1,7 @@
 import { ResponseTokenItem } from "./response";
 
 export * from "./response";
+export * from "./request";
 
 export interface Chain {
   id: number;
@@ -43,4 +44,52 @@ export interface NativeToken {
   decimals: number;
   name: string;
   logoURI: string;
+}
+
+export interface TokenInRoute {
+  address: string;
+  name: string;
+  decimals: number;
+  symbol: string;
+  icon: string;
+}
+export interface SubRoute {
+  amountIn: string;
+  amountOut: string;
+  dexName: string;
+  path: [];
+}
+
+export interface ChainInRoute {
+  bridge: string;
+  chainId: string;
+  tokenIn: TokenInRoute;
+  tokenOut: TokenInRoute;
+  totalAmountIn: string;
+  totalAmountOut: string;
+  route: SubRoute[];
+  singleRoute?: SubRoute;
+}
+
+export interface Route {
+  diff: string;
+  bridgeFee: {
+    amount: string;
+    symbol: string;
+  };
+  tradeType: number;
+  gasFee: {
+    amount: string;
+    symbol: string;
+  };
+  gasEstimated: string;
+  hash: string;
+  srcChain: ChainInRoute;
+  bridgeChain: ChainInRoute;
+  dstChain: ChainInRoute;
+  minAmountOut: {
+    amount: string;
+    symbol: string;
+  };
+  timeEstimated: number;
 }
