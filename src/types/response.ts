@@ -54,3 +54,88 @@ export interface BsRoute {
   slippage: string;
   entrance: string;
 }
+
+export interface SwapHistoryChainItem {
+  id: number | null;
+  chainId: string | null;
+  chainName: string | null;
+  scanUrl: string | null;
+  chainImg: string | null;
+}
+
+export interface SwapHistoryTokenItem {
+  id: number;
+  chainId: number;
+  address: string;
+  name: string;
+  symbol: string;
+  icon: string | null;
+  decimal: number;
+  isMainCurrency: number;
+}
+
+export interface SwapHistory {
+  receiveTokenDict: any;
+  id: number;
+  sourceAddress: string;
+  destinationAddress: string;
+  fromChainId: string;
+  toChainId: string;
+  sourceHash: string;
+  sourceHeight: number;
+  destinationHash: string | null;
+  destinationHeight: number | null;
+  orderId: string;
+  sourceTokenAddress: string;
+  destinationTokenAddress: string | null;
+  amount: number;
+  type: number;
+  state: number;
+  timestamp: string;
+  sourceChain: SwapHistoryChainItem;
+  destinationChain: any;
+  bridgeTokenDict: any;
+  sourceToken: SwapHistoryTokenItem;
+  destinationToken: any | null;
+  inAmount: number | null;
+  completeTime: string | null;
+  isMessageBridge: number;
+  relayerChain: SwapHistoryChainItem | null;
+  relayerChainId: string | null;
+  relayerHash: string | null;
+  relayerHeight: number | null;
+}
+
+export interface SwapHistoryResponse {
+  list: SwapHistory[];
+  total: number;
+}
+
+export interface SwapHistoryDetail {
+  receiveToken: any;
+  receiveAmount: any;
+  bridgeToken: any;
+  bridgeAmount: number;
+  id: 106179;
+  fromChain: SwapHistoryChainItem;
+  relayerChain: SwapHistoryChainItem;
+  toChain: SwapHistoryChainItem;
+  tokenAddress: string;
+  tokenSymbol: string;
+  timestamp: string;
+  completeTime: string;
+  amount: number;
+  inAmount: number;
+  fee: string;
+  state: number;
+  sourceHash: string;
+  relayerHash: string;
+  toHash: string;
+  sourceAddress: string;
+  toAddress: string;
+  fromTokenDecimal: number;
+  sourceToken: SwapHistoryTokenItem;
+  destinationToken: SwapHistoryTokenItem;
+  feeToken: SwapHistoryTokenItem;
+  isMessageBridge: 0;
+}

@@ -10,6 +10,10 @@ import {
   GetTokensForNetworkProps,
   GenerateSwapDataProps,
   RouteTxData,
+  GetSwapHistoryProps,
+  SwapHistoryResponse,
+  GetSwapHistoryDetailProps,
+  SwapHistoryDetail,
 } from "../types";
 
 /**
@@ -93,4 +97,24 @@ export const generateSwapData = async ({
     },
   );
   return result.data;
+};
+
+export const getSwapHistory = async ({
+  page,
+  size,
+  sourceAddress,
+}: GetSwapHistoryProps) => {
+  const result = await request<SwapHistoryResponse>(
+    `${baseConfig.historyApiUrl}/api/queryBridgeHistoryByAddress?page=${page}&size=${size}&address=${sourceAddress}`,
+  );
+  return result.data;
+};
+
+export const getSwapHistoryDetail = async ({
+  hash,
+}: GetSwapHistoryDetailProps) => {
+  const result = await request<{ info: SwapHistoryDetail } | null>(
+    `${baseConfig.historyApiUrl}/api/queryBridgeInfoBySourceHash?hash=${hash}`,
+  );
+  return result.data?.info;
 };

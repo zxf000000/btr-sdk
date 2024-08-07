@@ -2,6 +2,8 @@ import {
   generateSwapData,
   getChains,
   getRoutes,
+  getSwapHistory,
+  getSwapHistoryDetail,
   getTokensForNetwork,
 } from "./api";
 import { expect, test, describe, it } from "vitest";
@@ -83,4 +85,26 @@ describe("generateSwapData", async () => {
       timeout: 30000,
     },
   );
+});
+
+describe("getSwapHistory", async () => {
+  it("should return swap history", async () => {
+    const result = await getSwapHistory({
+      page: 1,
+      size: 10,
+      sourceAddress: "",
+    });
+    expect(result.total).toBeGreaterThan(0);
+  });
+});
+
+describe("getSwapHistoryDetail", () => {
+  it("should return valid data", async () => {
+    const result = await getSwapHistoryDetail({
+      hash: "",
+    });
+    expect(result?.sourceHash).toBe(
+      "0xdf11d3e99962940d48000eaaef8fd4f2fae965d8834f0bdba3239d3a38ec157b",
+    );
+  });
 });

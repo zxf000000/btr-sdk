@@ -22,3 +22,13 @@ export interface GenerateSwapDataProps {
   receiver: string;
   from: string;
 }
+
+export interface GetSwapHistoryProps {
+  page: number;
+  size: number;
+  sourceAddress: string;
+}
+
+export interface GetSwapHistoryDetailProps {
+  hash: string;
+}
