@@ -9,6 +9,8 @@ export {
 
 export { createEvmProvider } from "./core/EVM/EVM.js";
 
+export { createSolanaProvider } from "./core/Solana/Solana.js";
+
 export { default as executeRoute } from "./core/execute.js";
 
 export { default as butterConfig } from "./config/index.js";

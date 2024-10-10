@@ -4,7 +4,6 @@ import { isAddress } from "viem";
 import { getEVMBalance } from "./getEVMBalance.js";
 import type { RouteTxData } from "../../types/base.js";
 import { getPublicClient } from "./publicClient.js";
-import { getENSAddress } from "./getENSAddress.js";
 import { ChainType } from "../../types/chain.js";
 
 export function createEvmProvider(options: EvmProviderOptions): EVMProvider {
@@ -44,6 +43,6 @@ export function createEvmProvider(options: EvmProviderOptions): EVMProvider {
     setOptions(options: EvmProviderOptions) {
       Object.assign(_options, options);
     },
-    resolveAddress: getENSAddress,
+    // resolveAddress: getENSAddress,
   };
 }

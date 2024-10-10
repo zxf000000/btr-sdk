@@ -1,6 +1,6 @@
 {
   "name": "butter-sdk",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "",
   "type": "module",
   "main": "./src/_cjs/index.js",
@@ -41,6 +41,8 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/web3.js": "^1.95.3",
     "@types/lodash": "^4.17.10",
     "lodash": "^4.17.21",
     "viem": "^2.19.3"

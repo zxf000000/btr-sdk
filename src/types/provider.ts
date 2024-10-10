@@ -8,7 +8,7 @@ export interface ButterSDKProvider {
 
   isAddress(address: string): boolean;
 
-  resolveAddress(name: string): Promise<string | undefined>;
+  // resolveAddress(name: string): Promise<string | undefined>;
 
   executeRoute(route: RouteTxData): Promise<string>;
 
