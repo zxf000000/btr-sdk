@@ -1,4 +1,4 @@
-import { ApiResponse } from "../types";
+import type { ApiResponse } from "../types/index.js";
 
 export const request = async <T>(
   url: URL | RequestInfo,

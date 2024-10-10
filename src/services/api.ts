@@ -1,27 +1,25 @@
-import { request } from "./request";
-import { baseConfig } from "../macros/base-config";
-import {
-  Chain,
+import { request } from "./request.js";
+import { butterConfig } from "../index.js";
+import type {
   ChainsResponse,
   ResponseChainItem,
-  Route,
   TokensResponse,
   GetRoutesProps,
   GetTokensForNetworkProps,
   GenerateSwapDataProps,
-  RouteTxData,
   GetSwapHistoryProps,
   SwapHistoryResponse,
   GetSwapHistoryDetailProps,
   SwapHistoryDetail,
-} from "../types";
+} from "../types/index.js";
+import type { Chain, Route, RouteTxData } from "../types/base.js";
 
 /**
  * get all supported chain
  */
 export const getChains = async () => {
   const response = await request<ChainsResponse>(
-    `${baseConfig.apiUrl}/api/queryChainList?type=1`,
+    `${butterConfig.apiUrl}/api/queryChainList?type=1`,
     {
       method: "GET",
     },
@@ -42,9 +40,18 @@ export const getTokensForNetwork = async ({
   network,
   page = 1,
   size = 10,
+  keyword,
 }: GetTokensForNetworkProps) => {
+  const params = new URLSearchParams({
+    network,
+    page: page.toString(),
+    size: size.toString(),
+  });
+  if (keyword) {
+    params.set("keyword", keyword);
+  }
   const result = await request<TokensResponse>(
-    `${baseConfig.apiUrl}/api/queryTokenList?network=${network}&page=${page}&size=${size}`,
+    `${butterConfig.apiUrl}/api/queryTokenList?` + params,
   );
   return result.data;
 };
@@ -70,7 +77,7 @@ export const getRoutes = async ({
   params.set("slippage", slippage);
   params.set("entrance", entrance);
   const result = await request<Route[]>(
-    `${baseConfig.routeApiUrl}/route?` + params,
+    `${butterConfig.routeApiUrl}/route?` + params,
     {
       method: "GET",
       signal: abortSignal,
@@ -91,7 +98,7 @@ export const generateSwapData = async ({
   params.set("from", from);
   params.set("receiver", receiver);
   const result = await request<RouteTxData[]>(
-    `${baseConfig.routeApiUrl}/swap?` + params,
+    `${butterConfig.routeApiUrl}/swap?` + params,
     {
       method: "GET",
     },
@@ -105,7 +112,7 @@ export const getSwapHistory = async ({
   sourceAddress,
 }: GetSwapHistoryProps) => {
   const result = await request<SwapHistoryResponse>(
-    `${baseConfig.historyApiUrl}/api/queryBridgeHistoryByAddress?page=${page}&size=${size}&address=${sourceAddress}`,
+    `${butterConfig.historyApiUrl}/api/queryBridgeHistoryByAddress?page=${page}&size=${size}&address=${sourceAddress}`,
   );
   return result.data;
 };
@@ -114,7 +121,7 @@ export const getSwapHistoryDetail = async ({
   hash,
 }: GetSwapHistoryDetailProps) => {
   const result = await request<{ info: SwapHistoryDetail } | null>(
-    `${baseConfig.historyApiUrl}/api/queryBridgeInfoBySourceHash?hash=${hash}`,
+    `${butterConfig.historyApiUrl}/api/queryBridgeInfoBySourceHash?hash=${hash}`,
   );
   return result.data?.info;
 };

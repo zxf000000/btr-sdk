@@ -2,6 +2,7 @@ export interface GetTokensForNetworkProps {
   network: string;
   page?: number;
   size?: number;
+  keyword?: string;
 }
 
 export interface GetRoutesProps {

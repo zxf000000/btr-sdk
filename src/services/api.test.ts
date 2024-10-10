@@ -5,8 +5,8 @@ import {
   getSwapHistory,
   getSwapHistoryDetail,
   getTokensForNetwork,
-} from "./api";
-import { expect, test, describe, it } from "vitest";
+} from "./api.js";
+import { expect, describe, it } from "vitest";
 
 describe("getChains", () => {
   it("should return none empty chains", async () => {
