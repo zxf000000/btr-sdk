@@ -4,6 +4,7 @@ import type { WalletClient } from "viem";
 import type { SwitchChainHook } from "../core/EVM/types.js";
 import type { ITonConnect } from "@tonconnect/sdk";
 import type { TonConnectUI } from "@tonconnect/ui";
+import { Adapter } from "@tronweb3/tronwallet-abstract-adapter";
 
 export interface ButterSDKProvider {
   readonly providerType: ChainType;
@@ -12,7 +13,7 @@ export interface ButterSDKProvider {
 
   // resolveAddress(name: string): Promise<string | undefined>;
 
-  executeRoute(route: RouteTxData): Promise<string>;
+  executeRoute(route: RouteTxData | RouteTxData[]): Promise<string>;
 
   getBalance(walletAddress: string, tokens: Token[]): Promise<TokenAmount[]>;
 }
@@ -24,4 +25,8 @@ export interface EvmProviderOptions {
 
 export interface TonProviderOptions {
   getConnector?: () => Promise<ITonConnect | TonConnectUI>;
+}
+
+export interface TronProviderOptions {
+  getAdapter?: () => Promise<Adapter>;
 }

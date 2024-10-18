@@ -11,6 +11,7 @@ class ButterSDKConfig {
   public version: string;
   public providers: ButterSDKProvider[];
   public chains: Chain[] = [];
+  public rpcs: Record<string, string[]> = {};
 
   public loading: Promise<void> | undefined = undefined;
 
@@ -20,6 +21,7 @@ class ButterSDKConfig {
     this.historyApiUrl = "https://bs-app-api.chainservice.io";
     this.version = "";
     this.providers = [];
+    this.rpcs = {};
   }
 
   public static getInstance() {
@@ -34,6 +36,7 @@ class ButterSDKConfig {
     this.historyApiUrl = options.historyApiUrl || this.historyApiUrl;
     this.routeApiUrl = options.routeApiUrl || this.routeApiUrl;
     this.providers = [...this.providers, ...options.providers];
+    this.rpcs = options.rpcs || this.rpcs;
     this.loadChains();
   }
 

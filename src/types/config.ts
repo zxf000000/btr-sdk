@@ -7,4 +7,11 @@ export interface ButterSDKConfigOptions {
   historyApiUrl?: string;
   rpcUrls?: string[];
   providers: ButterSDKProvider[];
+  rpcs: Record<string, string[]>;
+}
+
+export interface TronRpcConfig {
+  fullNode: string;
+  solidityNode: string;
+  eventServer: string;
 }
