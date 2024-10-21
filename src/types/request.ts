@@ -31,5 +31,5 @@ export interface GetSwapHistoryProps {
 }
 
 export interface GetSwapHistoryDetailProps {
-  hash: string;
+  id: string;
 }

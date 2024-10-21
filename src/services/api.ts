@@ -118,10 +118,10 @@ export const getSwapHistory = async ({
 };
 
 export const getSwapHistoryDetail = async ({
-  hash,
+  id,
 }: GetSwapHistoryDetailProps) => {
   const result = await request<{ info: SwapHistoryDetail } | null>(
-    `${butterConfig.historyApiUrl}/api/queryBridgeInfoBySourceHash?hash=${hash}`,
+    `${butterConfig.historyApiUrl}/api/queryBridgeInfoById?id=${id}`,
   );
   return result.data?.info;
 };

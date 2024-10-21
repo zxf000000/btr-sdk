@@ -1,4 +1,6 @@
 import { Connection } from "@solana/web3.js";
+import butterConfig from "../../config/index.js";
+import { ChainType } from "../../types/index.js";
 
 let connection: Connection | undefined = undefined;
 
@@ -8,8 +10,10 @@ let connection: Connection | undefined = undefined;
  */
 export const getSolanaConnection = async (): Promise<Connection> => {
   if (!connection) {
-    const rpcUrl =
-      "https://lb.drpc.org/ogrpc?network=solana&dkey=AknBRwAOBUmSsmLlA3fGJ3R4KXXcIaoR76h1rr3WfgV4";
+    const rpcUrl = butterConfig.rpcs?.[ChainType.SOLANA]?.[0];
+    if (!rpcUrl) {
+      throw new Error("Please config rpc for Solana");
+    }
     connection = new Connection(rpcUrl);
     return connection;
   } else {

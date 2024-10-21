@@ -104,6 +104,12 @@ export interface SwapHistory {
   relayerChainId: string | null;
   relayerHash: string | null;
   relayerHeight: number | null;
+  chainPoolAction: number | null;
+  chainPoolAmount: number | null;
+  chainPoolHash: string | null;
+  chainPoolAddress: string | null;
+  chainPoolChainDict: SwapHistoryChainItem | null;
+  chainPoolTokenDict: SwapHistoryTokenItem | null;
 }
 
 export interface SwapHistoryResponse {
@@ -116,7 +122,7 @@ export interface SwapHistoryDetail {
   receiveAmount: any;
   bridgeToken: any;
   bridgeAmount: number;
-  id: 106179;
+  id: number;
   fromChain: SwapHistoryChainItem;
   relayerChain: SwapHistoryChainItem;
   toChain: SwapHistoryChainItem;
@@ -138,4 +144,10 @@ export interface SwapHistoryDetail {
   destinationToken: SwapHistoryTokenItem;
   feeToken: SwapHistoryTokenItem;
   isMessageBridge: 0;
+  chainPoolAction: number | null;
+  chainPoolAmount: number | null;
+  chainPoolHash: string | null;
+  chainPoolAddress: string | null;
+  chainPoolChainDict: SwapHistoryChainItem | null;
+  chainPoolTokenDict: SwapHistoryTokenItem | null;
 }

@@ -1,4 +1,4 @@
-import type { ButterSDKConfigOptions } from "../types/config.js";
+import type { ButterSDKConfigOptions, SDKRpcs } from "../types/config.js";
 import type { Chain } from "../types/base.js";
 import { getChains } from "../services/api.js";
 import type { ButterSDKProvider } from "../types/provider.js";
@@ -11,7 +11,7 @@ class ButterSDKConfig {
   public version: string;
   public providers: ButterSDKProvider[];
   public chains: Chain[] = [];
-  public rpcs: Record<string, string[]> = {};
+  public rpcs?: SDKRpcs;
 
   public loading: Promise<void> | undefined = undefined;
 

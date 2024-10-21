@@ -43,5 +43,6 @@ export type {
   TokenAmount,
   Route,
   RouteTxData,
-  ChainType,
 } from "./types/index.js";
+
+export { ChainType } from "./types/index.js";

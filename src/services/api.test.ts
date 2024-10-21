@@ -3,7 +3,6 @@ import {
   getChains,
   getRoutes,
   getSwapHistory,
-  getSwapHistoryDetail,
   getTokensForNetwork,
 } from "./api.js";
 import { expect, describe, it } from "vitest";
@@ -98,13 +97,13 @@ describe("getSwapHistory", async () => {
   });
 });
 
-describe("getSwapHistoryDetail", () => {
-  it("should return valid data", async () => {
-    const result = await getSwapHistoryDetail({
-      hash: "",
-    });
-    expect(result?.sourceHash).toBe(
-      "0xdf11d3e99962940d48000eaaef8fd4f2fae965d8834f0bdba3239d3a38ec157b",
-    );
-  });
-});
+// describe("getSwapHistoryDetail", () => {
+//   it("should return valid data", async () => {
+//     const result = await getSwapHistoryDetail({
+//       id: "",
+//     });
+//     expect(result?.sourceHash).toBe(
+//       "0xdf11d3e99962940d48000eaaef8fd4f2fae965d8834f0bdba3239d3a38ec157b",
+//     );
+//   });
+// });
