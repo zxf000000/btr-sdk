@@ -1,6 +1,6 @@
 {
   "name": "@zxf000000/btr-sdk",
-  "version": "0.0.25",
+  "version": "0.0.31",
   "description": "",
   "type": "module",
   "main": "./src/_cjs/index.js",

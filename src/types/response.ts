@@ -42,6 +42,7 @@ export interface ResponseTokenItem {
   symbol: string;
   usdprice: number;
   usedIniframe: number;
+  balance: number;
 }
 
 export interface BsRoute {

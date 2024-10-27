@@ -13,10 +13,11 @@ export function createEvmProvider(options: EvmProviderOptions): EVMProvider {
     isAddress,
     getBalance: getEVMBalance,
     async executeRoute(route: RouteTxData): Promise<string> {
-      if (!_options.getWalletClient) {
+      if (!_options.walletClient) {
         throw new Error(`Client is not provided.`);
       }
-      const walletClient = await _options.getWalletClient();
+      const walletClient = _options.walletClient;
+      console.log(walletClient, "wallet client", _options);
       if (
         !walletClient ||
         !walletClient.account ||

@@ -37,6 +37,7 @@ class ButterSDKConfig {
     this.routeApiUrl = options.routeApiUrl || this.routeApiUrl;
     this.providers = [...this.providers, ...options.providers];
     this.rpcs = options.rpcs || this.rpcs;
+    console.log("set options", options);
     this.loadChains();
   }
 

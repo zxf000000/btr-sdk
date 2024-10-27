@@ -19,7 +19,8 @@ export interface ButterSDKProvider {
 }
 
 export interface EvmProviderOptions {
-  getWalletClient?: () => Promise<WalletClient>;
+  // getWalletClient?: () => Promise<WalletClient>;
+  walletClient: WalletClient;
   switchChain?: SwitchChainHook;
 }
 
