@@ -10,6 +10,9 @@ export const request = async <T>(
       throw new Error(response.statusText);
     }
     const data: ApiResponse<T> = await response.json();
+    if (data.errno !== undefined && data.errno !== 0) {
+      throw new Error(data.message);
+    }
     return data;
   } catch (e) {
     throw e;

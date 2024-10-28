@@ -1,6 +1,7 @@
 export interface ApiResponse<T> {
   code: number;
   message: string;
+  errno: number;
   data: T;
 }
 
