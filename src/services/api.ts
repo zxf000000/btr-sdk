@@ -29,10 +29,18 @@ export const getChains = async () => {
   );
   const formatted: Chain[] = response.data.chains.map(
     (chain: ResponseChainItem) => {
+      let metamask: any = {};
+      let nativeToken: any = {};
+      try {
+        metamask = JSON.parse(chain.metamask);
+        nativeToken = JSON.parse(chain.nativeToken);
+      } catch (error) {
+        console.error("parse chain error", error);
+      }
       return {
         ...chain,
-        metamask: chain.metamask ? JSON.parse(chain.metamask) : {},
-        nativeToken: chain.nativeToken ? JSON.parse(chain.nativeToken) : {},
+        metamask,
+        nativeToken,
       };
     },
   );
