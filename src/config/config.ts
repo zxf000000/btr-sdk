@@ -2,6 +2,7 @@ import type { ButterSDKConfigOptions, SDKRpcs } from "../types/config.js";
 import type { Chain } from "../types/base.js";
 import { getChains } from "../services/api.js";
 import type { ButterSDKProvider } from "../types/provider.js";
+import { mergeProviders } from "../utils/mergeProviders.js";
 
 class ButterSDKConfig {
   private static instance: ButterSDKConfig;
@@ -35,7 +36,7 @@ class ButterSDKConfig {
     this.apiUrl = options.apiUrl || this.apiUrl;
     this.historyApiUrl = options.historyApiUrl || this.historyApiUrl;
     this.routeApiUrl = options.routeApiUrl || this.routeApiUrl;
-    this.providers = [...this.providers, ...options.providers];
+    this.providers = mergeProviders(this.providers, options.providers);
     this.rpcs = options.rpcs || this.rpcs;
     this.loadChains();
   }
