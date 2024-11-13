@@ -1,0 +1,1 @@
+{"version":3,"file":"chain.d.ts","sourceRoot":"","sources":["../../macros/chain.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,mBAAmB,CAAC;AAE9C,eAAO,MAAM,YAAY,qBAAqB,CAAC;AAC/C,eAAO,MAAM,cAAc,qBAAqB,CAAC;AACjD,eAAO,MAAM,YAAY,cAAc,CAAC;AACxC,eAAO,MAAM,WAAW,qBAAqB,CAAC;AAE9C,eAAO,MAAM,SAAS,EAAE,MAAM,CAAC,SAAS,EAAE,MAAM,CAM/C,CAAC"}

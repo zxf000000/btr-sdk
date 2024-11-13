@@ -1,0 +1,1 @@
+{"version":3,"file":"getNearBalance.d.ts","sourceRoot":"","sources":["../../../core/Near/getNearBalance.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,KAAK,EAAE,WAAW,EAAE,MAAM,sBAAsB,CAAC;AAM/D,wBAAsB,cAAc,CAClC,aAAa,EAAE,MAAM,EACrB,MAAM,EAAE,KAAK,EAAE,GACd,OAAO,CAAC,WAAW,EAAE,CAAC,CA6BxB"}

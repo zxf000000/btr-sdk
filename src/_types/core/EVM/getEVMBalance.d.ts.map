@@ -1,0 +1,1 @@
+{"version":3,"file":"getEVMBalance.d.ts","sourceRoot":"","sources":["../../../core/EVM/getEVMBalance.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,EAAE,KAAK,EAAE,WAAW,EAAE,MAAM,qBAAqB,CAAC;AAI9D,eAAO,MAAM,aAAa,kBACT,MAAM,UACb,KAAK,EAAE,KACd,OAAO,CAAC,WAAW,EAAE,CAwCvB,CAAC"}

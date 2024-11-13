@@ -1,0 +1,1 @@
+{"version":3,"file":"isAddress.js","sourceRoot":"","sources":["../../../core/Tron/isAddress.ts"],"names":[],"mappings":";;AAMA,8BAEC;AARD,qCAAkC;AAElC,MAAM,OAAO,GAAG,IAAI,iBAAO,CAAC;IAC1B,QAAQ,EAAE,yBAAyB;CACpC,CAAC,CAAC;AAEH,SAAgB,SAAS,CAAC,OAAe;IACvC,OAAO,OAAO,CAAC,SAAS,CAAC,OAAO,CAAC,CAAC;AACpC,CAAC"}

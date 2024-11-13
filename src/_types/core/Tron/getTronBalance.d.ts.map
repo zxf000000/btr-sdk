@@ -1,0 +1,1 @@
+{"version":3,"file":"getTronBalance.d.ts","sourceRoot":"","sources":["../../../core/Tron/getTronBalance.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,KAAK,EAAE,WAAW,EAAE,MAAM,sBAAsB,CAAC;AAM/D,eAAO,MAAM,WAAW,uCAAuC,CAAC;AAEhE,eAAO,MAAM,cAAc,kBACV,MAAM,UACb,KAAK,EAAE,KACd,OAAO,CAAC,WAAW,EAAE,CAuBvB,CAAC"}

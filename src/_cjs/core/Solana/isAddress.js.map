@@ -1,0 +1,1 @@
+{"version":3,"file":"isAddress.js","sourceRoot":"","sources":["../../../core/Solana/isAddress.ts"],"names":[],"mappings":";;AAEA,8BAOC;AATD,6CAA4C;AAE5C,SAAgB,SAAS,CAAC,OAAe;IACvC,IAAI,CAAC;QACH,IAAI,mBAAS,CAAC,OAAO,CAAC,CAAC;QACvB,OAAO,IAAI,CAAC;IACd,CAAC;IAAC,OAAO,KAAK,EAAE,CAAC;QACf,OAAO,KAAK,CAAC;IACf,CAAC;AACH,CAAC"}
