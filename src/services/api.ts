@@ -59,7 +59,7 @@ export const getTokensForNetwork = async ({
     size: size.toString(),
   });
   if (keyword) {
-    params.set("keyword", keyword);
+    params.set("symbol", keyword);
   }
   const result = await request<TokensResponse>(
     `${butterConfig.apiUrl}/api/queryTokenList?` + params,
