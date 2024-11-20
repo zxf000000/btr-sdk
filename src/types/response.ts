@@ -112,6 +112,7 @@ export interface SwapHistory {
   chainPoolAddress: string | null;
   chainPoolChainDict: SwapHistoryChainItem | null;
   chainPoolTokenDict: SwapHistoryTokenItem | null;
+  stage: number | null;
 }
 
 export interface SwapHistoryResponse {
@@ -152,4 +153,5 @@ export interface SwapHistoryDetail {
   chainPoolAddress: string | null;
   chainPoolChainDict: SwapHistoryChainItem | null;
   chainPoolTokenDict: SwapHistoryTokenItem | null;
+  stage: number | null;
 }
