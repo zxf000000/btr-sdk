@@ -1,6 +1,6 @@
 {
   "name": "@butternetwork/sdk",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "",
   "type": "module",
   "main": "./src/_cjs/index.js",
