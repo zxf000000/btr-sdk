@@ -92,6 +92,7 @@ export interface SwapHistory {
   sourceToken: SwapHistoryTokenItem;
   destinationToken: any | null;
   inAmount: number | null;
+  receiveAmount: number | null;
   completeTime: string | null;
   isMessageBridge: number;
   relayerChain: SwapHistoryChainItem | null;
