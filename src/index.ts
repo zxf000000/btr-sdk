@@ -43,6 +43,13 @@ export type {
   TokenAmount,
   Route,
   RouteTxData,
+  ButterSDKConfigOptions,
+  ButterSDKProvider,
+  SDKRpcs,
+  TronRpcConfig,
+  EvmProviderOptions,
+  TronProviderOptions,
+  TonProviderOptions,
 } from "./types/index.js";
 
 export { ChainType } from "./types/index.js";

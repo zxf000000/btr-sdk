@@ -23,3 +23,16 @@ export type {
 export { ChainType } from "./chain.js";
 
 export type { Chain, Token, TokenAmount, Route, RouteTxData } from "./base.js";
+
+export type {
+  ButterSDKConfigOptions,
+  TronRpcConfig,
+  SDKRpcs,
+} from "./config.js";
+
+export type {
+  ButterSDKProvider,
+  EvmProviderOptions,
+  TonProviderOptions,
+  TronProviderOptions,
+} from "./provider.js";

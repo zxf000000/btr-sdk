@@ -2,3 +2,10 @@ node_modules
 coverage
 .history
 .idea
+
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
