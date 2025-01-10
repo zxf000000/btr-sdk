@@ -102,6 +102,8 @@ export interface RouteTxData {
     type: string;
     value: any;
   }[];
+  // for BTC tx
+  memo?: string;
 }
 
 export interface TokenAmount {
