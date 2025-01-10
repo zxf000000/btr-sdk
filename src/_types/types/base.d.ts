@@ -92,6 +92,7 @@ export interface RouteTxData {
     type: string;
     value: any;
   }[];
+  memo?: string;
 }
 export interface TokenAmount {
   address: string;
